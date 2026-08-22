@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string("name", 255);
             $table->string("position_group", 33)->nullable();
             $table->string("format")->nullable();
-            $table->boolean("is_displayed");
+            $table->boolean("is_displayed")->nullable()->default(1);
             $table->timestamps();
         });
     }

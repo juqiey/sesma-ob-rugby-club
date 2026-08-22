@@ -118,6 +118,29 @@
                     </div>
                 </li>
 
+                <li class="nav-item">
+                    <a class="nav-link menu-link {{ set_active(['tasks-kanban','tasks-list-view','tasks-details']) }}" href="#sidebarApps" data-bs-toggle="collapse" role="button" aria-expanded="{{ set_expanded(['tasks-kanban','tasks-list-view','tasks-details']) }}" aria-controls="sidebarApps">
+                        <i class="ri-apps-2-line"></i> <span data-key="t-apps">Positions</span>
+                    </a>
+                    <div class="collapse menu-dropdown {{ set_show(['tasks-kanban','tasks-list-view','tasks-details']) }}" id="sidebarApps">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a href="#sidebarTasks" class="nav-link {{ set_active(['tasks-kanban','tasks-list-view','tasks-details']) }}" data-bs-toggle="collapse" role="button" aria-expanded="{{ set_expanded(['tasks-kanban','tasks-list-view','tasks-details']) }}" aria-controls="sidebarTasks" data-key="t-tasks"> Tasks
+                                </a>
+                                <div class="collapse menu-dropdown {{ set_show(['tasks-kanban','tasks-list-view','tasks-details']) }}" id="sidebarTasks">
+                                    <ul class="nav nav-sm flex-column">
+                                        <li class="nav-item">
+                                            <a href="{{ route('position.index') }}" class="nav-link {{ set_active(['tasks-kanban']) }}" data-key="t-kanbanboard">
+                                                Kanban Board
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
                 <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-pages">Pages</span></li>
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="#sidebarAuth" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarAuth">
@@ -280,9 +303,9 @@
                             </li>
                         </ul>
                     </div>
-                    
+
                 </li>
-                
+
             </ul>
         </div>
         <!-- Sidebar -->

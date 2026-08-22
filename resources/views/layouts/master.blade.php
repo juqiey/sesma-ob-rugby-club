@@ -29,6 +29,9 @@
     <link href="{{ asset('assets/css/app.min.css') }}" rel="stylesheet" type="text/css">
     <!-- custom Css-->
     <link href="{{ asset('assets/css/custom.min.css') }}" rel="stylesheet" type="text/css">
+
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
 </head>
 
 <body>
@@ -481,7 +484,7 @@
                                                     All (4)
                                                 </a>
                                             </li>
-                                           
+
                                             <li class="nav-item waves-effect waves-light">
                                                 <a class="nav-link" data-bs-toggle="tab" href="#alerts-tab" role="tab" aria-selected="false">
                                                     Alerts
@@ -1116,7 +1119,7 @@
                     <div id="sidebar-visibility">
                         <h6 class="mt-4 mb-0 fw-semibold text-uppercase">Sidebar Visibility</h6>
                         <p class="text-muted">Choose show or Hidden sidebar.</p>
-                
+
                         <div class="row">
                             <div class="col-4">
                                 <div class="form-check card-radio">
@@ -1573,7 +1576,7 @@
                                 <label class="form-check-label p-0 avatar-sm h-auto" for="sidebarimg-01">
                                     <img src="{{ asset('assets/images/img-1.jpg') }}" alt="" class="avatar-md w-auto object-fit-cover">
                                 </label>
-                            </div>	
+                            </div>
 
                             <div class="form-check sidebar-setting card-radio">
                                 <input class="form-check-input" type="radio" name="data-sidebar-image" id="sidebarimg-02" value="img-2">
@@ -1623,7 +1626,7 @@
                     <div id="preloader-menu">
                         <h6 class="mt-4 mb-0 fw-semibold text-uppercase">Preloader</h6>
                         <p class="text-muted">Choose a preloader.</p>
-                    
+
                         <div class="row">
                             <div class="col-4">
                                 <div class="form-check sidebar-setting card-radio">
@@ -1681,14 +1684,14 @@
                                 <h5 class="fs-13 text-center mt-2">Disable</h5>
                             </div>
                         </div>
-                    
+
                     </div>
                     <!-- end preloader-menu -->
 
                     <div id="body-img" style="display: none;">
                         <h6 class="mt-4 mb-0 fw-semibold text-uppercase">Background Image</h6>
                         <p class="text-muted">Choose a body background image.</p>
-                
+
                         <div class="row">
                             <div class="col-4">
                                 <div class="form-check sidebar-setting card-radio">
@@ -1724,7 +1727,7 @@
                                 <h5 class="fs-13 text-center mt-2">One</h5>
                             </div>
                             <!-- end col -->
-                
+
                             <div class="col-4">
                                 <div class="form-check sidebar-setting card-radio">
                                     <input class="form-check-input" type="radio" name="data-body-image" id="body-img-two" value="img-2">
@@ -1734,7 +1737,7 @@
                                 <h5 class="fs-13 text-center mt-2">Two</h5>
                             </div>
                             <!-- end col -->
-                
+
                             <div class="col-4">
                                 <div class="form-check sidebar-setting card-radio">
                                     <input class="form-check-input" type="radio" name="data-body-image" id="body-img-three" value="img-3">
@@ -1781,7 +1784,11 @@
     <!-- App js -->
     <script src="{{ asset('assets/js/app.js') }}"></script>
     <!-- imessage -->
-    <script src="{{ asset('assets/js/imessage.js') }}"></script>
+
+    <!-- JS Libraries -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
@@ -1795,6 +1802,21 @@
             Object.keys(messages).forEach(type => {
                 if (messages[type]) {
                     new Message('imessage').show(messages[type], type === "error" ? "fail" : type, "top-center");
+                }
+            });
+
+            // Initialize DataTables
+            $('.datatable').DataTable({
+                pageLength: 10,
+                lengthChange: true,
+                ordering: true,
+                searching: true,
+                language: {
+                    search: "Search:",
+                    lengthMenu: "Show _MENU_ entries per page",
+                    zeroRecords: "No matching records found",
+                    info: "Showing _START_ to _END_ of _TOTAL_ entries",
+                    infoFiltered: "(filtered from _MAX_ total records)"
                 }
             });
         });

@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\PositionController;
 use Illuminate\Support\Facades\Route;
+
 
 Route::get('/', function () {
     return view('auth.login');
@@ -33,19 +35,19 @@ Route::group(['namespace' => 'App\Http\Controllers\Auth'],function()
     // ----------------------------- register -------------------------------//
     Route::controller(RegisterController::class)->group(function () {
         Route::get('/register', 'register')->name('register');
-        Route::post('/register','storeUser')->name('register');    
+        Route::post('/register','storeUser')->name('register');
     });
 
     // ----------------------------- Forget Password --------------------------//
     Route::controller(ForgotPasswordController::class)->group(function () {
-        Route::get('forget-password', 'showLinkRequestForm')->name('forget-password');    
-        Route::post('forget-password', 'sendResetLinkEmail')->name('forget-password');    
+        Route::get('forget-password', 'showLinkRequestForm')->name('forget-password');
+        Route::post('forget-password', 'sendResetLinkEmail')->name('forget-password');
     });
 
     // ---------------------------- Reset Password ----------------------------//
     Route::controller(ResetPasswordController::class)->group(function () {
         Route::get('reset-password/{token}', 'getPassword');
-        Route::post('reset-password', 'updatePassword')->name('reset-password');    
+        Route::post('reset-password', 'updatePassword')->name('reset-password');
     });
 
     // Lock the screen
@@ -93,6 +95,16 @@ Route::group(['namespace' => 'App\Http\Controllers'],function()
             Route::get('tasks-kanban', 'tasksKanban')->name('tasks-kanban');
             Route::get('tasks-list-view', 'tasksListView')->name('tasks-list-view');
             Route::get('tasks-details', 'tasksDetails')->name('tasks-details');
+        });
+    });
+
+    //Module starts here
+    Route::middleware('auth')->group(function(){
+        //Position routes
+        Route::prefix('positions')->group(function(){
+            Route::controller(PositionController::class)->group(function(){
+                Route::get('/', 'index')->name('position.index');
+            });
         });
     });
 });
