@@ -104,6 +104,7 @@ Route::group(['namespace' => 'App\Http\Controllers'],function()
         Route::prefix('positions')->group(function(){
             Route::controller(PositionController::class)->group(function(){
                 Route::get('/', 'index')->name('position.index');
+                Route::get('/show/{position}','show')->name('position.show');
             });
         });
     });

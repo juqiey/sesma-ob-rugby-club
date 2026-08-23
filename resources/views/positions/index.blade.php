@@ -64,7 +64,7 @@
                                             <td>
                                             <div class="d-flex gap-2">
                                                 {{-- View --}}
-                                                <a href=""
+                                                <a href="{{ route('position.show', $position) }}"
                                                 class="btn btn-soft-primary"
                                                 title="View">
                                                     <i class="ri-eye-line"></i>
