@@ -16,9 +16,9 @@ class PositionController extends Controller
         'Backs'=>'success'
     ];
 
-    public function index()
+    public function index($format)
     {
-        $positions = Position::all();
+        $positions = Position::where('format',$format)->get();
 
         $positionGroups = $this->positionGroups;
 
@@ -46,7 +46,9 @@ class PositionController extends Controller
      */
     public function show(Position $position)
     {
-        //
+        $positionGroups = $this->positionGroups;
+
+        return view('positions.show', compact('position','positionGroups'));
     }
 
     /**
@@ -54,7 +56,7 @@ class PositionController extends Controller
      */
     public function edit(Position $position)
     {
-        //
+
     }
 
     /**

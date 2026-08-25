@@ -104,7 +104,7 @@
                                             <td>
                                                 {{-- View --}}
                                                 <button type="button"
-                                                        class="btn btn-soft-primary"
+                                                        class="btn btn-primary"
                                                         data-bs-toggle="modal"
                                                         data-bs-target="#playerModal{{ $player->players->id }}"
                                                         title="View">

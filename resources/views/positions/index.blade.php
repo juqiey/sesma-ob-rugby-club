@@ -62,30 +62,23 @@
                                                 </span>
                                             </td>
                                             <td>
-                                            <div class="d-flex gap-2">
-                                                {{-- View --}}
-                                                <a href="{{ route('position.show', $position) }}"
-                                                class="btn btn-soft-primary"
-                                                title="View">
-                                                    <i class="ri-eye-line"></i>
-                                                </a>
+                                                <div class="d-flex gap-2">
+                                                    {{-- View --}}
+                                                    <a href="{{ route('position.show', $position) }}"
+                                                    class="btn btn-soft-primary"
+                                                    title="View">
+                                                        <i class="ri-eye-line"></i>
+                                                    </a>
 
-                                                {{-- Edit --}}
-                                                <a href=""
-                                                class="btn btn-soft-warning"
-                                                title="Edit">
-                                                    <i class="ri-edit-line"></i>
-                                                </a>
-
-                                                {{-- Trigger Display --}}
-                                                <button type="button"
-                                                        class="btn btn-soft-success"
-                                                        title="Trigger Display"
-                                                        onclick="triggerDisplay()">
-                                                    <i class="ri-tv-line"></i>
-                                                </button>
-                                            </div>
-                                        </td>
+                                                    {{-- Trigger Display --}}
+                                                    <button type="button"
+                                                            class="btn btn-soft-success"
+                                                            title="Trigger Display"
+                                                            onclick="triggerDisplay()">
+                                                        <i class="ri-tv-line"></i>
+                                                    </button>
+                                                </div>
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>

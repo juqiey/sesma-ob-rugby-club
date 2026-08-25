@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\PlayerController;
 use App\Http\Controllers\PositionController;
 use Illuminate\Support\Facades\Route;
+
 
 
 Route::get('/', function () {
@@ -103,8 +105,15 @@ Route::group(['namespace' => 'App\Http\Controllers'],function()
         //Position routes
         Route::prefix('positions')->group(function(){
             Route::controller(PositionController::class)->group(function(){
-                Route::get('/', 'index')->name('position.index');
+                Route::get('/{format}', 'index')->name('position.index');
                 Route::get('/show/{position}','show')->name('position.show');
+            });
+        });
+
+        //Player routes
+        Route::prefix('players')->group(function(){
+            Route::controller(PlayerController::class)->group(function(){
+                Route::get('/{group}', 'index')->name('players.index');
             });
         });
     });

@@ -94,9 +94,9 @@
                     <div class="collapse menu-dropdown {{ set_show(['tasks-kanban','tasks-list-view','tasks-details']) }}" id="sidebarApps">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="#sidebarTasks" class="nav-link {{ set_active(['tasks-kanban','tasks-list-view','tasks-details']) }}" data-bs-toggle="collapse" role="button" aria-expanded="{{ set_expanded(['tasks-kanban','tasks-list-view','tasks-details']) }}" aria-controls="sidebarTasks" data-key="t-tasks"> Tasks
+                                <a href="#sidebarTasks" class="nav-link {{ set_active(['tasks-kanban','tasks-list-view','tasks-details']) }}" data-bs-toggle="collapse" role="button" aria-expanded="{{ set_expanded(['tasks-kanban','tasks-list-view','tasks-details']) }}" aria-controls="sidebarPosition" data-key="t-tasks"> Tasks
                                 </a>
-                                <div class="collapse menu-dropdown {{ set_show(['tasks-kanban','tasks-list-view','tasks-details']) }}" id="sidebarTasks">
+                                <div class="collapse menu-dropdown {{ set_show(['tasks-kanban','tasks-list-view','tasks-details']) }}" id="sidebarPosition">
                                     <ul class="nav nav-sm flex-column">
                                         <li class="nav-item">
                                             <a href="{{ route('tasks-kanban') }}" class="nav-link {{ set_active(['tasks-kanban']) }}" data-key="t-kanbanboard">
@@ -118,190 +118,135 @@
                     </div>
                 </li>
 
+
+                <!-- Players section -->
                 <li class="nav-item">
-                    <a class="nav-link menu-link {{ set_active(['tasks-kanban','tasks-list-view','tasks-details']) }}" href="#sidebarApps" data-bs-toggle="collapse" role="button" aria-expanded="{{ set_expanded(['tasks-kanban','tasks-list-view','tasks-details']) }}" aria-controls="sidebarApps">
-                        <i class="ri-apps-2-line"></i> <span data-key="t-apps">Positions</span>
+
+                    <a class="nav-link menu-link {{ set_active(['players*']) }}"
+                    href="#sidebarPlayers"
+                    data-bs-toggle="collapse"
+                    role="button"
+                    aria-expanded="{{ set_expanded(['players*']) }}"
+                    aria-controls="sidebarPlayers">
+
+                        <i class="ri-team-line"></i>
+                        <span>Players</span>
+
                     </a>
-                    <div class="collapse menu-dropdown {{ set_show(['tasks-kanban','tasks-list-view','tasks-details']) }}" id="sidebarApps">
+
+                    <div class="collapse menu-dropdown {{ set_show(['players*']) }}"
+                        id="sidebarPlayers">
+
                         <ul class="nav nav-sm flex-column">
+
+                            {{-- Forwards --}}
                             <li class="nav-item">
-                                <a href="#sidebarTasks" class="nav-link {{ set_active(['tasks-kanban','tasks-list-view','tasks-details']) }}" data-bs-toggle="collapse" role="button" aria-expanded="{{ set_expanded(['tasks-kanban','tasks-list-view','tasks-details']) }}" aria-controls="sidebarTasks" data-key="t-tasks"> Tasks
+
+                                <a href="{{ route('players.index', ['group' => 'Forward']) }}"
+                                class="nav-link {{ set_active(['players-forwards']) }}">
+
+                                    <i class="ri-shield-user-line"></i>
+                                    Forwards
+
                                 </a>
-                                <div class="collapse menu-dropdown {{ set_show(['tasks-kanban','tasks-list-view','tasks-details']) }}" id="sidebarTasks">
-                                    <ul class="nav nav-sm flex-column">
-                                        <li class="nav-item">
-                                            <a href="{{ route('position.index') }}" class="nav-link {{ set_active(['tasks-kanban']) }}" data-key="t-kanbanboard">
-                                                Kanban Board
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
+
                             </li>
+
+                            {{-- Backs --}}
+                            <li class="nav-item">
+
+                                <a href="{{ route('players.index', ['group' => 'Backs']) }}"
+                                class="nav-link {{ set_active(['players-backs']) }}">
+
+                                    <i class="ri-run-line"></i>
+                                    Backs
+
+                                </a>
+
+                            </li>
+
                         </ul>
+
                     </div>
-                </li>
 
-                <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-pages">Pages</span></li>
-                <li class="nav-item">
-                    <a class="nav-link menu-link" href="#sidebarAuth" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarAuth">
-                        <i class="ri-account-circle-line"></i> <span data-key="t-authentication">Authentication</span>
-                    </a>
-                    <div class="collapse menu-dropdown" id="sidebarAuth">
-                        <ul class="nav nav-sm flex-column">
-                            <li class="nav-item">
-                                <a href="#sidebarSignIn" class="nav-link" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarSignIn" data-key="t-signin"> Sign In
-                                </a>
-                                <div class="collapse menu-dropdown" id="sidebarSignIn">
-                                    <ul class="nav nav-sm flex-column">
-                                        <li class="nav-item">
-                                            <a href="auth-signin-basic.html" class="nav-link" data-key="t-basic"> Basic
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#sidebarSignUp" class="nav-link" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarSignUp" data-key="t-signup"> Sign Up
-                                </a>
-                                <div class="collapse menu-dropdown" id="sidebarSignUp">
-                                    <ul class="nav nav-sm flex-column">
-                                        <li class="nav-item">
-                                            <a href="auth-signup-basic.html" class="nav-link" data-key="t-basic">
-                                                Basic
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="#sidebarResetPass" class="nav-link" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarResetPass" data-key="t-password-reset">
-                                    Password Reset
-                                </a>
-                                <div class="collapse menu-dropdown" id="sidebarResetPass">
-                                    <ul class="nav nav-sm flex-column">
-                                        <li class="nav-item">
-                                            <a href="auth-pass-reset-basic.html" class="nav-link" data-key="t-basic">
-                                                Basic
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="#sidebarchangePass" class="nav-link" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarchangePass" data-key="t-password-create">
-                                    Password Create
-                                </a>
-                                <div class="collapse menu-dropdown" id="sidebarchangePass">
-                                    <ul class="nav nav-sm flex-column">
-                                        <li class="nav-item">
-                                            <a href="auth-pass-change-basic.html" class="nav-link" data-key="t-basic">
-                                                Basic
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="#sidebarLockScreen" class="nav-link" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarLockScreen" data-key="t-lock-screen">
-                                    Lock Screen
-                                </a>
-                                <div class="collapse menu-dropdown" id="sidebarLockScreen">
-                                    <ul class="nav nav-sm flex-column">
-                                        <li class="nav-item">
-                                            <a href="auth-lockscreen-basic.html" class="nav-link" data-key="t-basic">
-                                                Basic
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="#sidebarLogout" class="nav-link" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarLogout" data-key="t-logout"> Logout
-                                </a>
-                                <div class="collapse menu-dropdown" id="sidebarLogout">
-                                    <ul class="nav nav-sm flex-column">
-                                        <li class="nav-item">
-                                            <a href="auth-logout-basic.html" class="nav-link" data-key="t-basic"> Basic
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#sidebarSuccessMsg" class="nav-link" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarSuccessMsg" data-key="t-success-message"> Success Message
-                                </a>
-                                <div class="collapse menu-dropdown" id="sidebarSuccessMsg">
-                                    <ul class="nav nav-sm flex-column">
-                                        <li class="nav-item">
-                                            <a href="auth-success-msg-basic.html" class="nav-link" data-key="t-basic">
-                                                Basic
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#sidebarTwoStep" class="nav-link" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarTwoStep" data-key="t-two-step-verification"> Two Step Verification
-                                </a>
-                                <div class="collapse menu-dropdown" id="sidebarTwoStep">
-                                    <ul class="nav nav-sm flex-column">
-                                        <li class="nav-item">
-                                            <a href="auth-twostep-basic.html" class="nav-link" data-key="t-basic"> Basic
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#sidebarErrors" class="nav-link" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarErrors" data-key="t-errors"> Errors
-                                </a>
-                                <div class="collapse menu-dropdown" id="sidebarErrors">
-                                    <ul class="nav nav-sm flex-column">
-                                        <li class="nav-item">
-                                            <a href="auth-404-basic.html" class="nav-link" data-key="t-404-basic"> 404
-                                                Basic
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="auth-500.html" class="nav-link" data-key="t-500"> 500 </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="auth-offline.html" class="nav-link" data-key="t-offline-page"> Offline Page </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link menu-link {{ set_active(['profile','settings','faqs']) }}" href="#sidebarPages" data-bs-toggle="collapse" role="button" aria-expanded="{{ set_expanded(['profile','settings','faqs']) }}" aria-controls="sidebarPages">
-                        <i class="ri-pages-line"></i> <span data-key="t-pages">Pages</span>
+
+                    {{-- Positions --}}
+                    <a class="nav-link menu-link {{ set_active(['format', '15s', '7s']) }}"
+                    href="#sidebarPositions"
+                    data-bs-toggle="collapse"
+                    role="button"
+                    aria-expanded="{{ set_expanded(['format', '15s', '7s']) }}"
+                    aria-controls="sidebarPositions">
+
+                        <i class="ri-user-settings-line"></i>
+                        <span data-key="t-positions">Positions</span>
+
                     </a>
-                    <div class="collapse menu-dropdown {{ set_show(['profile','settings','faqs']) }}" id="sidebarPages">
+
+                    {{-- Positions Main Collapse --}}
+                    <div class="collapse menu-dropdown {{ set_show(['format', '15s', '7s']) }}"
+                        id="sidebarPositions">
+
                         <ul class="nav nav-sm flex-column">
+
                             <li class="nav-item">
-                                <a href="#sidebarProfile" class="nav-link {{ set_active(['profile','settings']) }}" data-bs-toggle="collapse" role="button" aria-expanded="{{ set_expanded(['profile','settings']) }}" aria-controls="sidebarProfile" data-key="t-profile">Profile</a>
-                                <div class="collapse menu-dropdown {{ set_show(['profile','settings']) }}" id="sidebarProfile">
+
+                                {{-- Format --}}
+                                <a href="#sidebarPositionFormat"
+                                class="nav-link {{ set_active(['format', '15s', '7s']) }}"
+                                data-bs-toggle="collapse"
+                                role="button"
+                                aria-expanded="{{ set_expanded(['format', '15s', '7s']) }}"
+                                aria-controls="sidebarPositionFormat"
+                                data-key="t-format">
+
+                                    Format
+
+                                </a>
+
+                                {{-- Format Collapse --}}
+                                <div class="collapse menu-dropdown {{ set_show(['format', '15s', '7s']) }}"
+                                    id="sidebarPositionFormat">
+
                                     <ul class="nav nav-sm flex-column">
+
+                                        {{-- 15s --}}
                                         <li class="nav-item">
-                                            <a href="{{ route('profile') }}" class="nav-link {{ set_active(['profile']) }}" data-key="t-simple-page">Simple Page</a>
+
+                                            <a href="{{ route('position.index',['format'=>'15s']) }}"
+                                            class="nav-link {{ set_active(['15s']) }}"
+                                            data-key="t-15s">
+
+                                                15s
+
+                                            </a>
+
                                         </li>
+
+                                        {{-- 7s --}}
                                         <li class="nav-item">
-                                            <a href="{{ route('settings') }}" class="nav-link {{ set_active(['settings']) }}" data-key="t-settings">Settings</a>
+
+                                            <a href="{{ route('position.index',['format'=>'7s']) }}"
+                                            class="nav-link {{ set_active(['7s']) }}"
+                                            data-key="t-7s">
+
+                                                7s
+
+                                            </a>
+
                                         </li>
+
                                     </ul>
+
                                 </div>
+
                             </li>
-                            <li class="nav-item">
-                                <a href="{{ route('faqs') }}" class="nav-link {{ set_active(['faqs']) }}" data-key="t-faqs">FAQs</a>
-                            </li>
+
                         </ul>
+
                     </div>
 
                 </li>
