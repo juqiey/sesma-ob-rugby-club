@@ -1,0 +1,35 @@
+.timeline {
+    position: relative;
+    padding-left: 45px;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 16px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #e9ecef;
+}
+
+.timeline-item {
+    position: relative;
+    padding-bottom: 30px;
+}
+
+.timeline-icon {
+    position: absolute;
+    left: -45px;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+.timeline-content {
+    padding: 0 0 10px 10px;
+}

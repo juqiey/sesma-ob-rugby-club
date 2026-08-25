@@ -114,6 +114,7 @@ Route::group(['namespace' => 'App\Http\Controllers'],function()
         Route::prefix('players')->group(function(){
             Route::controller(PlayerController::class)->group(function(){
                 Route::get('/{group}', 'index')->name('players.index');
+                Route::get('/show/{player}', 'show')->name('players.show');
             });
         });
     });

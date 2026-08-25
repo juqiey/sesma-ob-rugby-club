@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable" data-theme="default" data-theme-colors="default">
+<html lang="en" data-layout="horizontal" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="enable" data-theme="sass" data-theme-colors="default">
     <head>
 
     <meta charset="utf-8">
@@ -8,7 +8,7 @@
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description">
     <meta content="StarCode Kh" name="author">
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}">
+    <link rel="shortcut icon" href="{{ asset('assets/images/sesma_ob/sesma ob.png') }}">
     <!-- jsvectormap css -->
     <link href="{{ asset('assets/css/jsvectormap.min.css') }}" rel="stylesheet" type="text/css">
     <!-- Include Grid.js CSS and JS -->
@@ -32,6 +32,7 @@
 
     <!-- DataTables CSS -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
+    @stack('styles')
 </head>
 
 <body>
@@ -46,19 +47,19 @@
                         <div class="navbar-brand-box horizontal-logo">
                             <a href="index.html" class="logo logo-dark">
                                 <span class="logo-sm">
-                                    <img src="{{ asset('assets/images/logo-sm.png') }}" alt="" height="22">
+                                    <img src="{{ asset('assets/images/sesma_ob/sesma ob.png') }}" alt="" height="60">
                                 </span>
                                 <span class="logo-lg">
-                                    <img src="{{ asset('assets/images/logo-dark.png') }}" alt="" height="17">
+                                    <img src="{{ asset('assets/images/sesma_ob/sesma ob.png') }}" alt="" height="55">
                                 </span>
                             </a>
 
                             <a href="index.html" class="logo logo-light">
                                 <span class="logo-sm">
-                                    <img src="{{ asset('assets/images/logo-sm.png') }}" alt="" height="22">
+                                    <img src="{{ asset('assets/images/sesma_ob/sesma ob.png') }}" alt="" height="60">
                                 </span>
                                 <span class="logo-lg">
-                                    <img src="{{ asset('assets/images/logo-light.png') }}" alt="" height="17">
+                                    <img src="{{ asset('assets/images/sesma_ob/sesma ob.png') }}" alt="" height="55">
                                 </span>
                             </a>
                         </div>
@@ -723,9 +724,9 @@
                         <div class="dropdown ms-sm-3 header-item topbar-user">
                             <button type="button" class="btn material-shadow-none" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="d-flex align-items-center">
-                                    <img class="rounded-circle header-profile-user" src="{{ asset('assets/images/avatar-1.jpg') }}" alt="Header Avatar">
+                                    <img class="rounded-circle header-profile-user" src="{{ asset('assets/images/sesma_ob/sesma ob.png') }}" alt="Header Avatar">
                                     <span class="text-start ms-xl-2">
-                                        <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">StarCode Kh</span>
+                                        <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">{{ auth()->user()->name }}</span>
                                         <span class="d-none d-xl-block ms-1 fs-12 user-name-sub-text">Developer</span>
                                     </span>
                                 </span>
@@ -793,11 +794,11 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-sm-6">
-                            <script>document.write(new Date().getFullYear())</script> © Template.
+                            <script>document.write(new Date().getFullYear())</script> SESMA OB Management System
                         </div>
                         <div class="col-sm-6">
                             <div class="text-sm-end d-none d-sm-block">
-                                Custom by StarCode Kh
+                                Developed by Juqiey
                             </div>
                         </div>
                     </div>

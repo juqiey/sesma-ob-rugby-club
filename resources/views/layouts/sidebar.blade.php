@@ -144,10 +144,7 @@
 
                                 <a href="{{ route('players.index', ['group' => 'Forward']) }}"
                                 class="nav-link {{ set_active(['players-forwards']) }}">
-
-                                    <i class="ri-shield-user-line"></i>
                                     Forwards
-
                                 </a>
 
                             </li>
@@ -157,10 +154,17 @@
 
                                 <a href="{{ route('players.index', ['group' => 'Backs']) }}"
                                 class="nav-link {{ set_active(['players-backs']) }}">
-
-                                    <i class="ri-run-line"></i>
                                     Backs
+                                </a>
 
+                            </li>
+
+                            {{-- Backs --}}
+                            <li class="nav-item">
+
+                                <a href="{{ route('players.index', ['group' => 'Backs']) }}"
+                                class="nav-link {{ set_active(['players-backs']) }}">
+                                    Add New Player
                                 </a>
 
                             </li>
