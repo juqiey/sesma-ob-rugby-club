@@ -162,8 +162,8 @@
                             {{-- Backs --}}
                             <li class="nav-item">
 
-                                <a href="{{ route('players.index', ['group' => 'Backs']) }}"
-                                class="nav-link {{ set_active(['players-backs']) }}">
+                                <a href="{{ route('players.create') }}"
+                                class="nav-link {{ set_active(['players-create']) }}">
                                     Add New Player
                                 </a>
 
