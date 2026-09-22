@@ -334,21 +334,21 @@
                                                     <small class="text-muted d-block">
                                                         Height
                                                     </small>
-                                                    <h5 class="mb-0">180 cm</h5>
+                                                    <h5 class="mb-0">{{ $player->latestPhysicalAssessment->height_cm ?? 'N/A' }} cm</h5>
                                                 </div>
 
                                                 <div class="col-6 mb-4">
                                                     <small class="text-muted d-block">
                                                         Weight
                                                     </small>
-                                                    <h5 class="mb-0">115 kg</h5>
+                                                    <h5 class="mb-0">{{ $player->latestPhysicalAssessment->weight_kg ?? 'N/A' }} kg</h5>
                                                 </div>
 
                                                 <div class="col-6">
                                                     <small class="text-muted d-block">
                                                         Age
                                                     </small>
-                                                    <h5 class="mb-0">24 Years</h5>
+                                                    <h5 class="mb-0">{{ $player->age }} Years</h5>
                                                 </div>
 
                                                 <div class="col-6">
@@ -650,12 +650,12 @@
 
                                                     <tr>
                                                         <th width="40%">Full Name</th>
-                                                        <td>Ahmad Ali</td>
+                                                        <td>{{ $player->name }}</td>
                                                     </tr>
 
                                                     <tr>
                                                         <th>Date of Birth</th>
-                                                        <td>12 March 2002</td>
+                                                        <td>{{ $player->date_of_birth->format('d M Y') }}</td>
                                                     </tr>
 
                                                     <tr>
@@ -666,11 +666,6 @@
                                                     <tr>
                                                         <th>Nationality</th>
                                                         <td>Malaysian</td>
-                                                    </tr>
-
-                                                    <tr>
-                                                        <th>IC / Passport</th>
-                                                        <td>XXXXXX-XX-XXXX</td>
                                                     </tr>
 
                                                 </table>
@@ -696,17 +691,17 @@
 
                                                     <tr>
                                                         <th width="40%">Email</th>
-                                                        <td>ahmad@example.com</td>
+                                                        <td>{{ $player->email }}</td>
                                                     </tr>
 
                                                     <tr>
                                                         <th>Phone</th>
-                                                        <td>+60 12-345 6789</td>
+                                                        <td>{{ $player->phone_number }}</td>
                                                     </tr>
 
                                                     <tr>
-                                                        <th>Emergency Contact</th>
-                                                        <td>Ali Ahmad</td>
+                                                        <th>Current Address</th>
+                                                        <td>{{ $player->address }}</td>
                                                     </tr>
 
                                                     <tr>
@@ -720,6 +715,249 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="col-lg-12 mt-3">
+
+    <div class="card border shadow-none">
+
+        <div class="card-header bg-transparent d-flex justify-content-between align-items-center">
+
+            <div>
+                <h5 class="card-title mb-1">
+                    Physical Progress
+                </h5>
+
+                <p class="text-muted mb-0 fs-13">
+                    Track changes in physical condition over time
+                </p>
+            </div>
+
+            <select class="form-select form-select-sm" style="width: 120px;">
+                <option>6 Months</option>
+                <option>1 Year</option>
+                <option>All Time</option>
+            </select>
+
+        </div>
+
+        <div class="card-body">
+
+            <!-- Summary -->
+            <div class="row g-3 mb-4">
+
+                <div class="col-md-4">
+                    <div class="border rounded p-3">
+
+                        <div class="d-flex justify-content-between">
+
+                            <div>
+                                <p class="text-muted mb-1">
+                                    Weight
+                                </p>
+
+                                <h4 class="mb-1">
+                                    103.0
+                                    <small class="text-muted fs-13">kg</small>
+                                </h4>
+
+                                <span class="text-success fs-12">
+                                    <i class="ri-arrow-down-line"></i>
+                                    2.4 kg
+                                </span>
+                            </div>
+
+                            <div class="avatar-sm">
+                                <span class="avatar-title bg-primary-subtle text-primary rounded">
+                                    <i class="ri-scales-3-line fs-18"></i>
+                                </span>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <div class="col-md-4">
+                    <div class="border rounded p-3">
+
+                        <div class="d-flex justify-content-between">
+
+                            <div>
+                                <p class="text-muted mb-1">
+                                    Body Fat
+                                </p>
+
+                                <h4 class="mb-1">
+                                    25.7
+                                    <small class="text-muted fs-13">%</small>
+                                </h4>
+
+                                <span class="text-success fs-12">
+                                    <i class="ri-arrow-down-line"></i>
+                                    1.8%
+                                </span>
+                            </div>
+
+                            <div class="avatar-sm">
+                                <span class="avatar-title bg-danger-subtle text-danger rounded">
+                                    <i class="ri-percent-line fs-18"></i>
+                                </span>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <div class="col-md-4">
+                    <div class="border rounded p-3">
+
+                        <div class="d-flex justify-content-between">
+
+                            <div>
+                                <p class="text-muted mb-1">
+                                    Muscle Mass
+                                </p>
+
+                                <h4 class="mb-1">
+                                    39.7
+                                    <small class="text-muted fs-13">kg</small>
+                                </h4>
+
+                                <span class="text-success fs-12">
+                                    <i class="ri-arrow-up-line"></i>
+                                    1.2 kg
+                                </span>
+                            </div>
+
+                            <div class="avatar-sm">
+                                <span class="avatar-title bg-success-subtle text-success rounded">
+                                    <i class="ri-body-scan-line fs-18"></i>
+                                </span>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- Chart -->
+            <div class="border rounded p-3">
+
+                <div class="d-flex justify-content-between align-items-center mb-3">
+
+                    <div>
+                        <h6 class="mb-1">
+                            Weight Progress
+                        </h6>
+
+                        <span class="text-muted fs-12">
+                            January 2026 - August 2026
+                        </span>
+                    </div>
+
+                    <span class="badge bg-success-subtle text-success">
+                        Improving
+                    </span>
+
+                </div>
+
+                <div id="physicalProgressChart" style="height: 320px;"></div>
+
+            </div>
+
+
+            <!-- Latest Assessment -->
+            <div class="mt-4">
+
+                <h6 class="mb-3">
+                    Assessment History
+                </h6>
+
+                <div class="table-responsive">
+
+                    <table class="table table-hover align-middle mb-0">
+
+                        <thead class="table-light">
+
+                            <tr>
+                                <th>Date</th>
+                                <th>Weight</th>
+                                <th>Body Fat</th>
+                                <th>Muscle Mass</th>
+                                <th>Change</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>26 Aug 2026</td>
+                                <td>103.0 kg</td>
+                                <td>25.7%</td>
+                                <td>39.7 kg</td>
+                                <td>
+                                    <span class="badge bg-success-subtle text-success">
+                                        Improving
+                                    </span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>15 Jul 2026</td>
+                                <td>105.0 kg</td>
+                                <td>27.0%</td>
+                                <td>38.5 kg</td>
+                                <td>
+                                    <span class="badge bg-success-subtle text-success">
+                                        Improving
+                                    </span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>20 May 2026</td>
+                                <td>106.5 kg</td>
+                                <td>28.1%</td>
+                                <td>37.8 kg</td>
+                                <td>
+                                    <span class="badge bg-warning-subtle text-warning">
+                                        Stable
+                                    </span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>18 Mar 2026</td>
+                                <td>108.0 kg</td>
+                                <td>29.2%</td>
+                                <td>36.1 kg</td>
+                                <td>
+                                    <span class="badge bg-success-subtle text-success">
+                                        Improving
+                                    </span>
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
 
                             </div>
 
@@ -1078,4 +1316,92 @@
         </div>
         </div>
     </div>
+
+
+@endsection
+
+@section('scripts')
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+        var options = {
+            series: [{
+                name: 'Weight',
+                data: [110, 108, 106.5, 105, 103]
+            }],
+
+            chart: {
+                type: 'line',
+                height: 320,
+                toolbar: {
+                    show: false
+                },
+                zoom: {
+                    enabled: false
+                }
+            },
+
+            stroke: {
+                curve: 'smooth',
+                width: 3
+            },
+
+            markers: {
+                size: 5,
+                strokeWidth: 2,
+                hover: {
+                    size: 7
+                }
+            },
+
+            xaxis: {
+                categories: [
+                    'Jan 2026',
+                    'Mar 2026',
+                    'May 2026',
+                    'Jul 2026',
+                    'Aug 2026'
+                ]
+            },
+
+            yaxis: {
+                title: {
+                    text: 'Weight (kg)'
+                },
+
+                labels: {
+                    formatter: function (value) {
+                        return value.toFixed(1);
+                    }
+                }
+            },
+
+            tooltip: {
+                y: {
+                    formatter: function (value) {
+                        return value.toFixed(1) + ' kg';
+                    }
+                }
+            },
+
+            grid: {
+                strokeDashArray: 4
+            },
+
+            legend: {
+                show: false
+            }
+        };
+
+        var chart = new ApexCharts(
+            document.querySelector("#physicalProgressChart"),
+            options
+        );
+
+        chart.render();
+
+    });
+</script>
+
 @endsection
