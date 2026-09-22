@@ -1,0 +1,138 @@
+
+
+    .position-card,
+    .format-card {
+        cursor: pointer;
+        margin-bottom: 0;
+    }
+
+    .position-checkbox,
+    .format-checkbox {
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+
+    /* Position Card */
+
+    .position-card-content {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        min-height: 65px;
+        padding: 12px 14px;
+        border: 1px solid #dee2e6;
+        border-radius: 10px;
+        background: #fff;
+        transition: all 0.2s ease;
+    }
+
+    .position-card:hover .position-card-content {
+        border-color: #adb5bd;
+        transform: translateY(-1px);
+    }
+
+    .position-checkbox:checked + .position-card-content {
+        border-color: #5e72e4;
+        background: rgba(94, 114, 228, 0.06);
+        box-shadow: 0 2px 8px rgba(94, 114, 228, 0.12);
+    }
+
+    .position-number {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        background: #f8f9fa;
+        font-size: 13px;
+        font-weight: 700;
+    }
+
+    .position-checkbox:checked + .position-card-content .position-number {
+        background: #5e72e4;
+        color: #fff;
+    }
+
+    .position-name {
+        font-size: 13px;
+        font-weight: 600;
+    }
+
+    .position-check {
+        margin-left: auto;
+        display: none;
+        font-size: 12px;
+        color: #5e72e4;
+    }
+
+    .position-checkbox:checked + .position-card-content .position-check {
+        display: block;
+    }
+
+
+    /* Format Card */
+
+    .format-card-content {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        min-height: 80px;
+        padding: 15px;
+        border: 1px solid #dee2e6;
+        border-radius: 10px;
+        background: #fff;
+        transition: all 0.2s ease;
+    }
+
+    .format-card:hover .format-card-content {
+        border-color: #adb5bd;
+        transform: translateY(-1px);
+    }
+
+    .format-checkbox:checked + .format-card-content {
+        border-color: #5e72e4;
+        background: rgba(94, 114, 228, 0.06);
+        box-shadow: 0 2px 8px rgba(94, 114, 228, 0.12);
+    }
+
+    .format-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        background: #f8f9fa;
+        font-size: 16px;
+    }
+
+    .format-checkbox:checked + .format-card-content .format-icon {
+        background: #5e72e4;
+        color: #fff;
+    }
+
+    .format-title {
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .format-description {
+        margin-top: 2px;
+        font-size: 11px;
+        color: #8392ab;
+    }
+
+    .format-check {
+        display: none;
+        color: #5e72e4;
+        font-size: 12px;
+    }
+
+    .format-checkbox:checked + .format-card-content .format-check {
+        display: block;
+    }
