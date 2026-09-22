@@ -16,6 +16,11 @@ class PositionController extends Controller
         'Backs'=>'success'
     ];
 
+    public $statusColours = [
+        'ACTIVE'=>'success',
+        'INACTIVE'=>'danger'
+    ];
+
     public function index($format)
     {
         $positions = Position::where('format',$format)->get();
@@ -48,7 +53,9 @@ class PositionController extends Controller
     {
         $positionGroups = $this->positionGroups;
 
-        return view('positions.show', compact('position','positionGroups'));
+        $statusColours = $this->statusColours;
+
+        return view('positions.show', compact('position','positionGroups','statusColours'));
     }
 
     /**

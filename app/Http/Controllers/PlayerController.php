@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StorePlayerRequest;
 use App\Http\Requests\UpdatePlayerRequest;
 use App\Models\Player;
+use App\Models\Position;
 use Illuminate\Http\Request;
 
 class PlayerController extends Controller
@@ -33,7 +34,9 @@ class PlayerController extends Controller
      */
     public function create()
     {
-        //
+        $positions = Position::all();
+
+        return view('players.create', compact('positions'));
     }
 
     /**
