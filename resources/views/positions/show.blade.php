@@ -264,6 +264,7 @@
 
                                                             </div>
 
+
                                                         </div>
 
                                                     </div>
@@ -337,7 +338,11 @@
                                                                 </td>
 
                                                                 <td>
-                                                                    <span class="badge bg-success fs-12">
+                                                                    @php
+                                                                        $status = $club->status;
+                                                                        $statusColour = $statusColours[$status] ?? 'secondary';
+                                                                    @endphp
+                                                                    <span class="badge bg-{{ $statusColour }} fs-12">
                                                                         {{ $club->status }}
                                                                     </span>
                                                                     <br>
