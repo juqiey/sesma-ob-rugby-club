@@ -42,9 +42,15 @@ class PlayerController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StorePlayerRequest $request)
+    public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'profile_photo'=>'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'full_name'=>'required|string|max:255',
+            'preferred_name'=>'nullable|string|max:255',
+            'date_of_birth'=>'nullable|date',
+            ''
+        ]);
     }
 
     /**

@@ -118,46 +118,22 @@
 
 
                                             {{-- First Name --}}
-                                            <div class="col-md-6 mb-3">
-                                                <label for="first_name" class="form-label">
-                                                    First Name <span class="text-danger">*</span>
+                                            <div class="col-md-12 mb-3">
+                                                <label for="full_name" class="form-label">
+                                                    Full Name <span class="text-danger">*</span>
                                                 </label>
 
                                                 <input
                                                     type="text"
                                                     class="form-control"
-                                                    id="first_name"
-                                                    name="first_name"
-                                                    value="{{ old('first_name') }}"
-                                                    placeholder="Enter first name"
+                                                    id="full_name"
+                                                    name="full_name"
+                                                    value="{{ old('full_name') }}"
+                                                    placeholder="Enter full name"
                                                     required
                                                 >
 
-                                                @error('first_name')
-                                                    <small class="text-danger">
-                                                        {{ $message }}
-                                                    </small>
-                                                @enderror
-                                            </div>
-
-
-                                            {{-- Last Name --}}
-                                            <div class="col-md-6 mb-3">
-                                                <label for="last_name" class="form-label">
-                                                    Last Name <span class="text-danger">*</span>
-                                                </label>
-
-                                                <input
-                                                    type="text"
-                                                    class="form-control"
-                                                    id="last_name"
-                                                    name="last_name"
-                                                    value="{{ old('last_name') }}"
-                                                    placeholder="Enter last name"
-                                                    required
-                                                >
-
-                                                @error('last_name')
+                                                @error('full_name')
                                                     <small class="text-danger">
                                                         {{ $message }}
                                                     </small>
@@ -168,7 +144,7 @@
                                             {{-- Preferred Name --}}
                                             <div class="col-md-6 mb-3">
                                                 <label for="preferred_name" class="form-label">
-                                                    Preferred Name
+                                                    Nickname (Optional)
                                                 </label>
 
                                                 <input
@@ -214,190 +190,235 @@
                                 </div>
 
 
-{{-- Personal Information --}}
-<div class="mt-3 pt-4 border-top">
+                                {{-- Personal Information --}}
+                                <div class="mt-3 pt-4 border-top">
 
-    <h6 class="text-sm font-weight-bold mb-3">
-        Personal Information
-    </h6>
+                                    <h6 class="text-sm font-weight-bold mb-3">
+                                        Personal Information
+                                    </h6>
 
-    <div class="row">
+                                    <div class="row">
 
-        {{-- Gender --}}
-        <div class="col-md-6 mb-3">
+                                        {{-- Gender --}}
+                                        <div class="col-md-6 mb-3">
 
-            <label for="gender" class="form-label">
-                Gender <span class="text-danger">*</span>
-            </label>
+                                            <label for="gender" class="form-label">
+                                                Gender <span class="text-danger">*</span>
+                                            </label>
 
-            <select
-                class="form-select"
-                id="gender"
-                name="gender"
-                required
-            >
-                <option value="">Select Gender</option>
+                                            <select
+                                                class="form-select"
+                                                id="gender"
+                                                name="gender"
+                                                required
+                                            >
+                                                <option value="">Select Gender</option>
 
-                <option
-                    value="male"
-                    {{ old('gender') == 'male' ? 'selected' : '' }}
-                >
-                    Male
-                </option>
+                                                <option
+                                                    value="male"
+                                                    {{ old('gender') == 'male' ? 'selected' : '' }}
+                                                >
+                                                    Male
+                                                </option>
 
-                <option
-                    value="female"
-                    {{ old('gender') == 'female' ? 'selected' : '' }}
-                >
-                    Female
-                </option>
-            </select>
+                                                <option
+                                                    value="female"
+                                                    {{ old('gender') == 'female' ? 'selected' : '' }}
+                                                >
+                                                    Female
+                                                </option>
+                                            </select>
 
-            @error('gender')
-                <small class="text-danger">
-                    {{ $message }}
-                </small>
-            @enderror
+                                            @error('gender')
+                                                <small class="text-danger">
+                                                    {{ $message }}
+                                                </small>
+                                            @enderror
 
-        </div>
-
-
-        {{-- Nationality --}}
-        <div class="col-md-6 mb-3">
-
-            <label for="nationality" class="form-label">
-                Nationality
-            </label>
-
-            <input
-                type="text"
-                class="form-control"
-                id="nationality"
-                name="nationality"
-                value="{{ old('nationality', 'Malaysian') }}"
-                placeholder="Enter nationality"
-            >
-
-            @error('nationality')
-                <small class="text-danger">
-                    {{ $message }}
-                </small>
-            @enderror
-
-        </div>
+                                        </div>
 
 
-        {{-- Batch --}}
-        <div class="col-md-6 mb-3">
+                                        {{-- Nationality --}}
+                                        <div class="col-md-6 mb-3">
 
-            <label for="batch" class="form-label">
-                Alumni Batch
-            </label>
+                                            <label for="nationality" class="form-label">
+                                                Nationality
+                                            </label>
 
-            <input
-                type="text"
-                class="form-control"
-                id="batch"
-                name="batch"
-                value="{{ old('batch') }}"
-                placeholder="e.g. 2018, 2018/2019"
-            >
+                                            <input
+                                                type="text"
+                                                class="form-control"
+                                                id="nationality"
+                                                name="nationality"
+                                                value="{{ old('nationality', 'Malaysian') }}"
+                                                placeholder="Enter nationality"
+                                            >
 
-            <small class="text-muted">
-                Enter the player's school or alumni batch.
-            </small>
+                                            @error('nationality')
+                                                <small class="text-danger">
+                                                    {{ $message }}
+                                                </small>
+                                            @enderror
 
-            @error('batch')
-                <small class="text-danger d-block">
-                    {{ $message }}
-                </small>
-            @enderror
-
-        </div>
+                                        </div>
 
 
-        {{-- Age --}}
-        <div class="col-md-6 mb-3">
+                                        {{-- Batch --}}
+                                        <div class="col-md-6 mb-3">
 
-            <label for="age" class="form-label">
-                Age
-            </label>
+                                            <label for="batch" class="form-label">
+                                                Alumni Batch
+                                            </label>
 
-            <div class="input-group">
+                                            <input
+                                                type="text"
+                                                class="form-control"
+                                                id="batch"
+                                                name="batch"
+                                                value="{{ old('batch') }}"
+                                                placeholder="e.g. 2018, 2018/2019"
+                                            >
 
-                <input
-                    type="text"
-                    class="form-control"
-                    id="age"
-                    value=""
-                    placeholder="Calculated from date of birth"
-                    readonly
-                >
+                                            <small class="text-muted">
+                                                Enter the player's school or alumni batch.
+                                            </small>
 
-                <span class="input-group-text">
-                    years
-                </span>
+                                            @error('batch')
+                                                <small class="text-danger d-block">
+                                                    {{ $message }}
+                                                </small>
+                                            @enderror
 
-            </div>
-
-            <small class="text-muted">
-                Automatically calculated from the date of birth.
-            </small>
-
-        </div>
-
-    </div>
-
-</div>
+                                        </div>
 
 
-{{-- =========================
-    Age Calculation
-========================== --}}
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
+                                        {{-- Age --}}
+                                        <div class="col-md-6 mb-3">
 
-        const dateOfBirth = document.getElementById('date_of_birth');
-        const ageInput = document.getElementById('age');
+                                            <label for="age" class="form-label">
+                                                Age
+                                            </label>
 
-        function calculateAge() {
+                                            <div class="input-group">
 
-            if (!dateOfBirth.value) {
-                ageInput.value = '';
-                return;
-            }
+                                                <input
+                                                    type="text"
+                                                    class="form-control"
+                                                    id="age"
+                                                    value=""
+                                                    placeholder="Calculated from date of birth"
+                                                    readonly
+                                                >
 
-            const birthDate = new Date(dateOfBirth.value);
-            const today = new Date();
+                                                <span class="input-group-text">
+                                                    years
+                                                </span>
 
-            let age = today.getFullYear() - birthDate.getFullYear();
+                                            </div>
 
-            const monthDifference =
-                today.getMonth() - birthDate.getMonth();
+                                            <small class="text-muted">
+                                                Automatically calculated from the date of birth.
+                                            </small>
 
-            if (
-                monthDifference < 0 ||
-                (
-                    monthDifference === 0 &&
-                    today.getDate() < birthDate.getDate()
-                )
-            ) {
-                age--;
-            }
+                                        </div>
 
-            ageInput.value = age >= 0 ? age : '';
+                                    </div>
 
-        }
+                                </div>
 
-        // Calculate when page loads
-        calculateAge();
+                                {{-- Physical Information --}}
+                                <div class="mt-3 pt-4 border-top">
 
-        // Recalculate whenever DOB changes
-        dateOfBirth.addEventListener('change', calculateAge);
+                                    <h6 class="text-sm font-weight-bold mb-3">
+                                        Physical Information
+                                    </h6>
 
-    });
-</script>
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <label for="height_cm">
+                                                Height (cm) <span class="text-danger">*</span>
+                                            </label>
+                                                <input
+                                                    type="number"
+                                                    class="form-control"
+                                                    id="height_cm"
+                                                    name="height_cm"
+                                                    value="{{ old('height_cm', '180') }}"
+                                                    placeholder="e.g. 180"
+                                                >
 
+                                                @error('height_cm')
+                                                    <small class="text-danger">
+                                                        {{ $message }}
+                                                    </small>
+                                                @enderror
+                                        </div>
+
+                                        <div class="col-md-6 mb-3">
+                                            <label for="weight_kg">
+                                                Weight (kg) <span class="text-danger">*</span>
+                                            </label>
+                                                <input
+                                                    type="number"
+                                                    class="form-control"
+                                                    id="weight_kg"
+                                                    name="weight_kg"
+                                                    value="{{ old('weight_kg', '80') }}"
+                                                    placeholder="e.g. 80"
+                                                >
+
+                                                @error('weight_kg')
+                                                    <small class="text-danger">
+                                                        {{ $message }}
+                                                    </small>
+                                                @enderror
+                                        </div>
+
+                                        <p class="text-sm text-muted mt-4 mb-2">
+                                            Optional. If provided, please enter muscle mass and body fat percentage based on a verified body composition assessment by a qualified healthcare professional.
+                                        </p>
+
+                                        <div class="col-md-6 mb-3">
+                                            <label for="muscle_mass_kg">
+                                                Muscle Mass (kg) <span class="text-danger">*</span>
+                                            </label>
+                                            <input
+                                                type="number"
+                                                class="form-control"
+                                                id="muscle_mass_kg"
+                                                name="muscle_mass_kg"
+                                                value="{{ old('muscle_mass_kg', '50') }}"
+                                                placeholder="e.g. 50"
+                                            >
+
+                                            @error('muscle_mass_kg')
+                                                <small class="text-danger">
+                                                    {{ $message }}
+                                                </small>
+                                            @enderror
+                                        </div>
+
+                                        <div class="col-md-6 mb-3">
+                                            <label for="body_fat_percentage">
+                                                Body Fat Percentage (%) <span class="text-danger">*</span>
+                                            </label>
+                                            <input
+                                                type="number"
+                                                class="form-control"
+                                                id="body_fat_percentage"
+                                                name="body_fat_percentage"
+                                                value="{{ old('body_fat_percentage', '50') }}"
+                                                placeholder="e.g. 50"
+                                            >
+
+                                            @error('body_fat_percentage')
+                                                <small class="text-danger">
+                                                    {{ $message }}
+                                                </small>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
 
@@ -413,7 +434,7 @@
                                 </h6>
 
                                 <p class="text-sm text-muted mb-4">
-                                    Select the positions and rugby formats that the player has experience playing.
+                                    Select the positions and rugby formats that the player has experience playing. You may select more than one position if the player has played in multiple positions.
                                 </p>
 
 
@@ -577,103 +598,6 @@
 
                                 </div>
 
-
-                                {{-- =========================
-                                    Rugby Formats
-                                ========================== --}}
-                                <div class="mb-4">
-
-                                    <label class="form-label mb-3">
-                                        Rugby Formats <span class="text-danger">*</span>
-                                    </label>
-
-                                    <div class="row g-2">
-
-                                        @php
-                                            $rugbyFormats = [
-                                                'XV' => [
-                                                    'title' => 'Rugby XV',
-                                                    'description' => '15-a-side rugby',
-                                                    'icon' => 'fa-users'
-                                                ],
-                                                '7s' => [
-                                                    'title' => 'Rugby 7s',
-                                                    'description' => '7-a-side rugby',
-                                                    'icon' => 'fa-running'
-                                                ],
-                                                '10s' => [
-                                                    'title' => 'Rugby 10s',
-                                                    'description' => '10-a-side rugby',
-                                                    'icon' => 'fa-users'
-                                                ],
-                                            ];
-                                        @endphp
-
-                                        @foreach ($rugbyFormats as $value => $format)
-
-                                            <div class="col-md-4">
-
-                                                <label class="format-card w-100">
-
-                                                    <input
-                                                        type="checkbox"
-                                                        name="rugby_formats[]"
-                                                        value="{{ $value }}"
-                                                        class="format-checkbox"
-                                                        {{ in_array($value, old('rugby_formats', [])) ? 'checked' : '' }}
-                                                    >
-
-                                                    <div class="format-card-content">
-
-                                                        <div class="format-icon">
-                                                            <i class="fas {{ $format['icon'] }}"></i>
-                                                        </div>
-
-                                                        <div class="flex-grow-1">
-
-                                                            <div class="format-title">
-                                                                {{ $format['title'] }}
-                                                            </div>
-
-                                                            <div class="format-description">
-                                                                {{ $format['description'] }}
-                                                            </div>
-
-                                                        </div>
-
-                                                        <div class="format-check">
-                                                            <i class="fas fa-check"></i>
-                                                        </div>
-
-                                                    </div>
-
-                                                </label>
-
-                                            </div>
-
-                                        @endforeach
-
-                                    </div>
-
-                                    <small class="text-muted d-block mt-2">
-                                        Select all rugby formats the player has experience playing.
-                                    </small>
-
-                                    @error('rugby_formats')
-                                        <small class="text-danger d-block">
-                                            {{ $message }}
-                                        </small>
-                                    @enderror
-
-                                    @error('rugby_formats.*')
-                                        <small class="text-danger d-block">
-                                            {{ $message }}
-                                        </small>
-                                    @enderror
-
-                                </div>
-
-
                                 {{-- =========================
                                     Playing Status
                                 ========================== --}}
@@ -715,89 +639,6 @@
                                         @enderror
                                     </div>
 
-                                </div>
-
-                            </div>
-
-
-
-
-
-
-                            <hr class="horizontal dark my-4">
-
-                            {{-- =========================
-                                Alumni Information
-                            ========================== --}}
-                            <h6 class="text-uppercase text-secondary text-xs font-weight-bolder mb-3">
-                                Alumni Information
-                            </h6>
-
-                            <div class="row">
-
-                                {{-- School / Institution --}}
-                                <div class="col-md-6 mb-3">
-                                    <label for="school" class="form-label">
-                                        School / Institution
-                                    </label>
-
-                                    <input
-                                        type="text"
-                                        class="form-control"
-                                        id="school"
-                                        name="school"
-                                        value="{{ old('school') }}"
-                                        placeholder="Enter school or institution"
-                                    >
-                                </div>
-
-                                {{-- Graduation Year --}}
-                                <div class="col-md-6 mb-3">
-                                    <label for="graduation_year" class="form-label">
-                                        Graduation Year
-                                    </label>
-
-                                    <input
-                                        type="number"
-                                        class="form-control"
-                                        id="graduation_year"
-                                        name="graduation_year"
-                                        value="{{ old('graduation_year') }}"
-                                        placeholder="e.g. 2020"
-                                        min="1900"
-                                        max="{{ date('Y') }}"
-                                    >
-                                </div>
-
-                                {{-- Alumni Batch --}}
-                                <div class="col-md-6 mb-3">
-                                    <label for="school_batch" class="form-label">
-                                        Alumni Batch
-                                    </label>
-
-                                    <input
-                                        type="text"
-                                        class="form-control"
-                                        id="school_batch"
-                                        name="school_batch"
-                                        value="{{ old('school_batch') }}"
-                                        placeholder="e.g. 2015/2016"
-                                    >
-                                </div>
-
-                                {{-- Joined Club Date --}}
-                                <div class="col-md-6 mb-3">
-                                    <label for="joined_club_at" class="form-label">
-                                        Joined Alumni Club
-                                    </label>
-
-                                    <input
-                                        type="date"
-                                        class="form-control"
-                                        id="joined_club_at"
-                                        name="joined_club_at"
-                                        value="{{ old('joined_club_at') }}"
-                                    >
                                 </div>
 
                             </div>
@@ -875,49 +716,6 @@
     </div>
 @endsection
 
-@section('scripts')
-    <script>
-        // Profile Photo Preview
-        const profilePhotoInput = document.getElementById('profile_photo');
-        const photoPreviewContainer = document.getElementById('photo-preview-container');
-        const photoPreview = document.getElementById('photo-preview');
-        const photoPlaceholder = document.getElementById('photo-placeholder');
-
-        profilePhotoInput.addEventListener('change', function() {
-            const file = this.files[0];
-
-            if (file) {
-                const reader = new FileReader();
-
-                reader.addEventListener('load', function() {
-                    photoPreview.setAttribute('src', this.result);
-                    photoPreview.style.display = 'block';
-                    photoPlaceholder.style.display = 'none';
-                });
-
-                reader.readAsDataURL(file);
-            } else {
-                photoPreview.setAttribute('src', '');
-                photoPreview.style.display = 'none';
-                photoPlaceholder.style.display = 'block';
-            }
-        });
-
-        // Toggle Account Fields
-        const createAccountCheckbox = document.getElementById('create_account');
-        const accountFields = document.getElementById('account-fields');
-
-        function toggleAccountFields() {
-            if (createAccountCheckbox.checked) {
-                accountFields.style.display = 'flex';
-            } else {
-                accountFields.style.display = 'none';
-            }
-        }
-
-        createAccountCheckbox.addEventListener('change', toggleAccountFields);
-
-        // Initialize on page load
-        toggleAccountFields();
-    </script>
+@section('script')
+    <script src="{{ asset('assets/js/player/player-form.js') }}"></script>
 @endsection
