@@ -20,7 +20,9 @@ class Player extends Model
         'batch',
         'age',
         'status',
-        'profile_url'
+        'profile_url',
+        'nickname',
+        'gender'
     ];
 
     protected $casts = [

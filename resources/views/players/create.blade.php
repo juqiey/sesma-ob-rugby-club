@@ -38,7 +38,7 @@
 
                     <div class="card-body">
 
-                        <form action="" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('players.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
 
                             {{-- =========================
@@ -238,23 +238,23 @@
                                         </div>
 
 
-                                        {{-- Nationality --}}
+                                        {{-- Phone Number --}}
                                         <div class="col-md-6 mb-3">
 
-                                            <label for="nationality" class="form-label">
-                                                Nationality
+                                            <label for="phone_number" class="form-label">
+                                                Phone Number
                                             </label>
 
                                             <input
                                                 type="text"
                                                 class="form-control"
-                                                id="nationality"
-                                                name="nationality"
-                                                value="{{ old('nationality', 'Malaysian') }}"
-                                                placeholder="Enter nationality"
+                                                id="phone_number"
+                                                name="phone_number"
+                                                value="{{ old('phone_number') }}"
+                                                placeholder="Enter phone number"
                                             >
 
-                                            @error('nationality')
+                                            @error('phone_number')
                                                 <small class="text-danger">
                                                     {{ $message }}
                                                 </small>
@@ -618,17 +618,23 @@
                                             <option value="">Select Playing Status</option>
 
                                             <option
-                                                value="active"
-                                                {{ old('playing_status') == 'active' ? 'selected' : '' }}
+                                                value="ACTIVE"
+                                                {{ old('playing_status') == 'ACTIVE' ? 'selected' : '' }}
                                             >
                                                 Active
                                             </option>
 
                                             <option
-                                                value="retired"
-                                                {{ old('playing_status') == 'retired' ? 'selected' : '' }}
+                                                value="RETIRED"
+                                                {{ old('playing_status') == 'RETIRED' ? 'selected' : '' }}
                                             >
                                                 Retired
+                                            </option>
+                                            <option
+                                                value="INJURED"
+                                                {{ old('playing_status') == 'INJURED' ? 'selected' : '' }}
+                                            >
+                                                Injured
                                             </option>
                                         </select>
 
