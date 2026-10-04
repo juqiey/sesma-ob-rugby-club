@@ -32,10 +32,10 @@
 
                         {{-- Profile Picture --}}
                         <div class="col-md-auto text-center mb-3 mb-md-0">
-                            <img src="https://ui-avatars.com/api/?name=Ahmad+Ali&size=140&background=198754&color=fff"
+                            <img src="{{ $player->profile_url ?: 'https://ui-avatars.com/api/?name=Ahmad+Ali&size=140&background=198754&color=fff' }}"
                                 class="rounded-circle"
-                                width="140"
-                                height="140"
+                                width="200"
+                                height="200"
                                 alt="Player Profile">
                         </div>
 
@@ -305,11 +305,10 @@
 
                                                 <div class="col-6">
                                                     <small class="text-muted d-block">
-                                                        Position
+                                                        Matches Played
                                                     </small>
-                                                    <strong>Prop</strong>
+                                                    <strong>34</strong>
                                                 </div>
-
                                             </div>
 
                                         </div>
@@ -353,9 +352,15 @@
 
                                                 <div class="col-6">
                                                     <small class="text-muted d-block">
-                                                        Preferred Position
+                                                        Preferred Positions
                                                     </small>
-                                                    <h5 class="mb-0">Prop</h5>
+                                                    <h5 class="mb-0">
+                                                        @foreach ($player->playerPosition as $position)
+                                                            <span class="badge bg-primary fs-12">
+                                                                {{ $position->positions->name }}
+                                                            </span>
+                                                        @endforeach
+                                                    </h5>
                                                 </div>
 
                                             </div>
@@ -1322,86 +1327,6 @@
 
 @section('scripts')
 
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-
-        var options = {
-            series: [{
-                name: 'Weight',
-                data: [110, 108, 106.5, 105, 103]
-            }],
-
-            chart: {
-                type: 'line',
-                height: 320,
-                toolbar: {
-                    show: false
-                },
-                zoom: {
-                    enabled: false
-                }
-            },
-
-            stroke: {
-                curve: 'smooth',
-                width: 3
-            },
-
-            markers: {
-                size: 5,
-                strokeWidth: 2,
-                hover: {
-                    size: 7
-                }
-            },
-
-            xaxis: {
-                categories: [
-                    'Jan 2026',
-                    'Mar 2026',
-                    'May 2026',
-                    'Jul 2026',
-                    'Aug 2026'
-                ]
-            },
-
-            yaxis: {
-                title: {
-                    text: 'Weight (kg)'
-                },
-
-                labels: {
-                    formatter: function (value) {
-                        return value.toFixed(1);
-                    }
-                }
-            },
-
-            tooltip: {
-                y: {
-                    formatter: function (value) {
-                        return value.toFixed(1) + ' kg';
-                    }
-                }
-            },
-
-            grid: {
-                strokeDashArray: 4
-            },
-
-            legend: {
-                show: false
-            }
-        };
-
-        var chart = new ApexCharts(
-            document.querySelector("#physicalProgressChart"),
-            options
-        );
-
-        chart.render();
-
-    });
-</script>
+<script src="{{ asset('assets/js/player/player-profile.js') }}"></script>
 
 @endsection

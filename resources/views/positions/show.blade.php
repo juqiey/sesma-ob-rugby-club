@@ -114,11 +114,7 @@
                                         </tr>
 
 
-                                    @endforeach
-                                </tbody>
-                            </table>
-
-                            <div class="modal fade"
+                                        <div class="modal fade"
                                 id="playerModal{{ $player->players->id }}"
                                 tabindex="-1"
                                 aria-labelledby="playerModalLabel{{ $player->players->id }}"
@@ -372,6 +368,11 @@
                                     </div>
                                 </div>
                             </div>
+                                    @endforeach
+                                </tbody>
+                            </table>
+
+
                         </div>
 
                     </div>

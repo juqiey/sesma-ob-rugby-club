@@ -37,6 +37,7 @@
                                         <th>Name</th>
                                         <th>Age</th>
                                         <th>Phone Number</th>
+                                        <th>Positions</th>
                                         <th>Status</th>
                                         <th>Action</th>
                                     </tr>
@@ -49,6 +50,13 @@
                                             <td>{{ $player->name }}</td>
                                             <td>{{ $player->age }}</td>
                                             <td>{{ $player->phone_number }}</td>
+                                            <td>
+                                                @foreach($player->playerPosition as $position)
+                                                    <span class="badge bg-primary fs-12">
+                                                        {{ $position->positions->name }}
+                                                    </span>
+                                                @endforeach
+                                            </td>
                                             <td>
                                                 @php
                                                     $status = $player->status;
