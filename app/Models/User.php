@@ -84,17 +84,21 @@ class User extends Authenticatable
             $todayDate = Carbon::now()->toDayDateTimeString();
             $save             = new User;
             $save->name       = $request->name;
-            $save->avatar     = $request->image;
             $save->email      = $request->email;
             $save->join_date  = $todayDate;
-            $save->role_name  = 'User';
+            $save->username   = 'juqiey';
+            $save->role       = 'Admin';
             $save->status     = 'Active';
             $save->password   = Hash::make($request->password);
             $save->save();
             return redirect('login')->with('success', 'Account created successfully :)');
         } catch (\Exception $e) {
             \Log::error($e);
-            return redirect()->back()->with('error', 'Failed to Create Account. Please try again.');
+            return redirect()->back()->with('error', 'Failed to Create Account. Please try again.' . $e->getMessage());
         }
+    }
+
+    public function player(){
+        return $this->hasOne(Player::class);
     }
 }

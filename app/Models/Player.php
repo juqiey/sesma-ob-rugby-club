@@ -22,7 +22,8 @@ class Player extends Model
         'status',
         'profile_url',
         'nickname',
-        'gender'
+        'gender',
+        'user_id'
     ];
 
     protected $casts = [
@@ -58,5 +59,10 @@ class Player extends Model
     public function latestPhysicalAssessment()
     {
         return $this->hasOne(PhysicalAssessment::class)->latestOfMany();
+    }
+
+    //Relationship with user
+    public function user(){
+        return $this->belongsTo(User::class);
     }
 }
