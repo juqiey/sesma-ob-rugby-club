@@ -118,6 +118,43 @@
                     </div>
                 </li>
 
+                <!-- Users section -->
+                <li class="nav-item">
+                    <a class="nav-link menu-link {{ set_active(['profile-clubs','profile-tournaments','profile-performance','profile-physical']) }}" href="#sidebarCareer" data-bs-toggle="collapse" role="button" aria-expanded="{{ set_expanded(['profile-clubs','profile-tournaments','profile-performance','profile-physical']) }}" aria-controls="sidebarApps">
+                        <i class="ri-run-line"></i> <span data-key="t-profile">My Profile</span>
+                    </a>
+                    <div class="collapse menu-dropdown {{ set_show(['profile-clubs','profile-tournaments','profile-performance','profile-physical']) }}" id="sidebarApps">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a href="#sidebarTasks" class="nav-link {{ set_active(['profile-clubs','profile-tournaments','profile-performance','profile-physical']) }}" data-bs-toggle="collapse" role="button" aria-expanded="{{ set_expanded(['profile-clubs','profile-tournaments','profile-performance','profile-physical']) }}" aria-controls="sidebarPosition" data-key="t-career"> My Career
+                                </a>
+                                <div class="collapse menu-dropdown {{ set_show(['profile-clubs','profile-tournaments','profile-performance','profile-physical']) }}" id="sidebarPosition">
+                                    <ul class="nav nav-sm flex-column">
+                                        <li class="nav-item">
+                                            <a href="{{ route('my-career.clubs') }}" class="nav-link {{ set_active(['profile-clubs']) }}" data-key="t-clubs">
+                                                Clubs
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="{{ route('tasks-list-view') }}" class="nav-link {{ set_active(['profile-tournaments']) }}" data-key="t-tournaments">
+                                                Tournaments
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="{{ route('tasks-details') }}" class="nav-link {{ set_active(['profile-performance']) }}" data-key="t-performance"> Performance </a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                                <div
+                            </li>
+                        </ul>
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                            <a href="{{ route('tasks-details') }}" class="nav-link {{ set_active(['profile-physical']) }}" data-key="t-physical"> Physical </a>
+                                        </li>
+                    </div>
+                </li>
 
                 <!-- Players section -->
                 <li class="nav-item">

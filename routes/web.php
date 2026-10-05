@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\Player\ClubController;
 use App\Http\Controllers\PlayerController;
 use App\Http\Controllers\PositionController;
 use Illuminate\Support\Facades\Route;
+
 
 
 
@@ -117,6 +119,14 @@ Route::group(['namespace' => 'App\Http\Controllers'],function()
                 Route::get('/{group}', 'index')->name('players.index');
                 Route::get('/show/{player}', 'show')->name('players.show');
                 Route::post('/store', 'store')->name('players.store');
+            });
+        });
+
+
+        //My career routes here
+        Route::prefix('my-career')->group(function(){
+            Route::controller(ClubController::class)->group(function(){
+                Route::get('/clubs', 'index')->name('my-career.clubs');
             });
         });
     });
