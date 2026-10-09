@@ -69,10 +69,10 @@
                                 </p>
                             </div>
 
-                            <button type="button" class="btn btn-primary">
+                            <a href="{{ route('my-career.clubs.create') }}" class="btn btn-primary">
                                 <i class="ri-add-line me-1"></i>
                                 Add Representation
-                            </button>
+                            </a>
                         </div>
 
                         {{-- Summary --}}

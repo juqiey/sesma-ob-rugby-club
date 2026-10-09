@@ -17,4 +17,9 @@ class Position extends Model
     {
         return $this->hasMany(PlayerPosition::class);
     }
+
+    public function representationPosition()
+    {
+        return $this->hasMany(RepresentationPosition::class);
+    }
 }

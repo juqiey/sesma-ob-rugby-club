@@ -31,4 +31,9 @@ class PlayerRepresentation extends Model
     public function clubs(){
         return $this->belongsTo(Club::class, 'club_id');
     }
+
+    public function representationPositions()
+    {
+        return $this->hasMany(RepresentationPosition::class, 'player_representation_id');
+    }
 }

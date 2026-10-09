@@ -127,6 +127,8 @@ Route::group(['namespace' => 'App\Http\Controllers'],function()
         Route::prefix('my-career')->group(function(){
             Route::controller(ClubController::class)->group(function(){
                 Route::get('/clubs', 'index')->name('my-career.clubs');
+                Route::get('/clubs/create', 'create')->name('my-career.clubs.create');
+                Route::get('/clubs/search', 'search')->name('my-career.clubs.search');
             });
         });
     });
